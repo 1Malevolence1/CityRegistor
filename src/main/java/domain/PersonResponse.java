@@ -3,9 +3,9 @@ package domain;
 public class PersonResponse {
     private boolean registered;
 
-    public boolean temporal;
+    private boolean temporal;
 
-    public boolean isTemporal() {
+    public boolean getTemporal() {
         return temporal;
     }
 
@@ -13,7 +13,7 @@ public class PersonResponse {
         this.temporal = temporal;
     }
 
-    public boolean isRegistered() {
+    public boolean getRegistered() {
         return registered;
     }
 
