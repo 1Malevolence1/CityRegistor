@@ -1,11 +1,13 @@
 package web;
 
-;
+
 
 import dao.PersonCheckDao;
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +21,15 @@ import java.time.LocalDate;
 
 @WebServlet(name ="CheckPersonServlet", urlPatterns ="/checkPerson")
 public class CheckPersonServlet extends HttpServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(CheckPersonServlet.class);
+    private PersonCheckDao personCheckDao;
+    @Override
+    public void init() throws ServletException {
+        logger.info("SERVLET is created");
+         personCheckDao = new PersonCheckDao();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String surname = req.getParameter("surname");
@@ -33,7 +44,7 @@ public class CheckPersonServlet extends HttpServlet {
         pr.setApartment("121");
 
         try {
-            PersonCheckDao personCheckDao = new PersonCheckDao();
+             personCheckDao = new PersonCheckDao();
             PersonResponse personResponse = personCheckDao.checkPerson(pr);
             if(personResponse.getRegistered()){
                 resp.getWriter().write("Registered");
