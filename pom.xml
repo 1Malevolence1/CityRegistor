@@ -5,7 +5,7 @@
   <groupId>org.example</groupId>
   <artifactId>CityRegistor</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>CityRegistor</name>
   <url>http://maven.apache.org</url>
@@ -29,7 +29,26 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>5.9.1</version>
         <scope>test</scope>
+
       </dependency>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>8.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--<dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>-->
+
+
+
+
 
   </dependencies>
   <build>
@@ -42,6 +61,14 @@
           <target>8</target>
         </configuration>
       </plugin>
+
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <configuration>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+              </plugin>
     </plugins>
   </build>
 </project>
