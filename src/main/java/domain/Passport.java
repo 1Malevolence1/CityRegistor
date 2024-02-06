@@ -1,8 +1,12 @@
 package domain;
 
+import dao.ConnectingBuilder;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
-public class Passport {
+public class Passport   {
     private String passportSeries;
 
     private String passportNumber;
@@ -42,4 +46,5 @@ public class Passport {
     public void setDateOfIssue(LocalDate dateOfIssue) {
         this.dateOfIssue = dateOfIssue;
     }
+
 }
