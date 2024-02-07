@@ -1,11 +1,12 @@
-import dao.ConnectingBuilder;
+package dao;
+
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
 
 import java.sql.*;
 
-public class PersonCheckDao  {
+public class PersonCheckDao {
 
     private static final String INFO_PERSON = "SELECT *\n" +
             "FROM cr_address_person AS ap\n" +
@@ -60,6 +61,5 @@ public class PersonCheckDao  {
 
         return stringBuilder.toString();
     }
-
 
 }

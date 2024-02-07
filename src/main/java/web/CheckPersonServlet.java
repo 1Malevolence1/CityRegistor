@@ -3,6 +3,7 @@ package web;
 
 
 
+import dao.PersonCheckDao;
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
@@ -19,7 +20,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
-/*
 @WebServlet(name ="CheckPersonServlet", urlPatterns ="/checkPerson")
 public class CheckPersonServlet extends HttpServlet {
 
@@ -61,4 +61,3 @@ public class CheckPersonServlet extends HttpServlet {
         }
     }
 }
-*/
