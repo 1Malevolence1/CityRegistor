@@ -3,6 +3,8 @@ package web;
 
 
 import dao.PersonCheckDao;
+
+import dao.PoolConnectionBuilder;
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
@@ -19,7 +21,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
-@WebServlet(name ="CheckPersonServlet", urlPatterns ="/checkPerson")
+@WebServlet(name ="/CheckPersonServlet", urlPatterns ="/checkPerson")
 public class CheckPersonServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(CheckPersonServlet.class);
@@ -27,7 +29,8 @@ public class CheckPersonServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         logger.info("SERVLET is created");
-         personCheckDao = new PersonCheckDao();
+        personCheckDao = new PersonCheckDao();
+        personCheckDao.setConnectingBuilder(new PoolConnectionBuilder());
     }
 
     @Override
