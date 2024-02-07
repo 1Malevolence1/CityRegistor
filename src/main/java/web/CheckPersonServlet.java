@@ -2,13 +2,13 @@ package web;
 
 
 
-import dao.PersonCheckDao;
+
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
+/*
 @WebServlet(name ="CheckPersonServlet", urlPatterns ="/checkPerson")
 public class CheckPersonServlet extends HttpServlet {
 
@@ -27,7 +28,7 @@ public class CheckPersonServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         logger.info("SERVLET is created");
-         personCheckDao = new PersonCheckDao();
+        personCheckDao = new PersonCheckDao();
     }
 
     @Override
@@ -60,3 +61,4 @@ public class CheckPersonServlet extends HttpServlet {
         }
     }
 }
+*/
