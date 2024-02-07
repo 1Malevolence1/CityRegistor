@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
-@WebServlet(name ="CheckPersonServlet", urlPatterns ="/checkPerson")
+@WebServlet(name ="/CheckPersonServlet", urlPatterns ="/checkPerson")
 public class CheckPersonServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(CheckPersonServlet.class);
