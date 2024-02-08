@@ -1,5 +1,4 @@
 package dao;
-
 import domain.PersonRequest;
 import domain.PersonResponse;
 import exception.PersonCheckException;
