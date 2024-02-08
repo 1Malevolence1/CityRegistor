@@ -1,6 +1,5 @@
 package domain;
 
-import dao.ConnectingBuilder;
 
 import java.sql.Connection;
 import java.sql.SQLException;

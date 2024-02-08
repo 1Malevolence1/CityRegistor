@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class PoolConnectingBuilder implements ConnectingBuilder {
+public class PoolConnectingBuilder implements ConnectBuilder {
     private static final Logger logger = LoggerFactory.getLogger(PoolConnectingBuilder.class);
 
     private DataSource dataSource;

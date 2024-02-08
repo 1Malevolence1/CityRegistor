@@ -23,7 +23,7 @@ class PersonCheckDaoTest {
         pr.setExtension("2");
         pr.setApartment("121");
         PersonCheckDao personCheckDao = new PersonCheckDao();
-        personCheckDao.setConnectingBuilder(new DirectConnectingBuilder());
+        personCheckDao.setConnectBuilder(new DirectConnectingBuilder());
         PersonResponse personResponse = personCheckDao.checkPerson(pr);
         Assertions.assertTrue(personResponse.getRegistered());
         Assertions.assertFalse(personResponse.getTemporal());
