@@ -10,6 +10,7 @@ import exception.PersonCheckException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,24 +32,24 @@ public class CheckPersonServlet extends HttpServlet {
 
     public void init() throws ServletException {
         logger.info("SERVLET is created");
-        this.personCheckDao = new PersonCheckDao();
-        this.personCheckDao.setConnectBuilder(new PoolConnectBuilder());
+        personCheckDao = new PersonCheckDao();
+        personCheckDao.setConnectBuilder(new PoolConnectBuilder());
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String surname = req.getParameter("surname");
+
         PersonRequest pr = new PersonRequest();
-        pr.setSurname(surname);
-        pr.setName("Виктор");
-        pr.setMiddleName("Сергеевич");
-        pr.setDateOfBirth(LocalDate.of(1995, 3, 18));
-        pr.setStreetCode(1);
-        pr.setBuilding("10");
-        pr.setExtension("2");
-        pr.setApartment("121");
+        pr.setSurname(req.getParameter("surname"));
+        pr.setName(req.getParameter("givenname"));
+        pr.setMiddleName(req.getParameter("middleName"));
+        pr.setDateOfBirth(LocalDate.parse(req.getParameter("dateOfBirth"), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        pr.setStreetCode(Integer.parseInt(req.getParameter("streetCode")));
+        pr.setBuilding(req.getParameter("building"));
+        pr.setExtension(req.getParameter("extension"));
+        pr.setApartment(req.getParameter("apartment"));
 
         try {
-            PersonResponse personResponse = this.personCheckDao.checkPerson(pr);
+            PersonResponse personResponse = personCheckDao.checkPerson(pr);
             if (personResponse.getRegistered()) {
                 resp.getWriter().write("Registered");
             } else {

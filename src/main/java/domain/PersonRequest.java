@@ -3,7 +3,7 @@ package domain;
 import java.time.LocalDate;
 
 public class PersonRequest {
-    private String Surname;
+    private String surname;
     private String name;
     private String middleName;
 
@@ -20,7 +20,7 @@ public class PersonRequest {
     public PersonRequest(String surname, String name,
                          String middleName, LocalDate dateOfBirth,
                          String building, String extension, String apartment) {
-        Surname = surname;
+        this.surname = surname;
         this.name = name;
         this.middleName = middleName;
         this.dateOfBirth = dateOfBirth;
@@ -38,11 +38,11 @@ public class PersonRequest {
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public String getName() {
